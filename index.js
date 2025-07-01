@@ -1,33 +1,39 @@
-// Given an array of numbers, find the most occurred number, and how many times it occurs.
+// working on quadratic time complexity
 
-// Example: [1, 2, 2, 4, 5, 2].
-// Output:
-// Number: 2
-// Occurence: 3
+// let arr = [1,2,3,4,5,6,7,8,9]
+// function printp (){
+//     for (let i = 0; i < arr.length; i++){
+//         for (let j = 0 ; j < arr.length ; j++){
+//             console.log(arr[i], arr[j]);
+//         }
+//     }
+// }
+// printp();
 
-let numbers = [1, 2, 2, 4, 5, 2];
+// 1. Reverse a string using a loop
+// 2. Check for palindrome using string reversal
 
-function findMostOccurredNumber(arr) {
-    let numbercount = {};
-    let highestcount = 0;
-    let highestoccurredNumber = null;
+let str = ".....";
 
-    for (let i = 0; i< arr.length; i++) {
-        let number = arr[i];
-        if (numbercount[number]) {
-            numbercount[number]++;
-        } else {
-            numbercount[number] = 1;
-        }
+function cleanString(myString){
+    return myString.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-        if (numbercount[number] > highestcount) {
-            highestcount = numbercount[number];
-            highestoccurredNumber = number;
-        }
-    }
-    return {
-        number: highestoccurredNumber,
-        occurrence: highestcount
-    };
 }
-console.log(findMostOccurredNumber(numbers));
+function reverseString(myString) {
+    let reversed = "";
+    for (let i = myString.length - 1; i >= 0; i--) {
+        reversed += myString[i];
+    }
+    return reversed;
+}
+
+function isPalindrome(myString) {
+    let cleaned= cleanString(myString)
+    let reversed = reverseString(cleaned);
+    return cleaned === reversed;
+}       
+
+console.log(reverseString(str)); 
+console.log(isPalindrome(str)); 
+
+
